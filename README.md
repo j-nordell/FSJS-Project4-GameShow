@@ -36,12 +36,12 @@ To complete this project, follow the instructions below. If you get stuck, ask a
   - [ ] `gameOver()`: this method displays a message if the player wins or a different message if they lose.
   - [ ] `startGame()`: calls the getRandomPhrase() method, and adds that phrase to the board by calling the Phrase class' addPhraseToDisplay() method.
 
-### Create the app.js file.
+### Create the app.js file
 
 - [ ] This file creates a new instance of the Game class, adds event listeners for the onscreen keyboard and a function to display the game:
-  - [ ] resetDisplay(): this function hides the start screen overlay.
-  - [ ] markButton(): this function is called when a player selects a letter. It disables the button on the onscreen keyboard and calls the - - [ ] handleInteraction() method of the Game class.
-  - [ ] Add an event listener to the "Start Game" button which calls the - - [ ] resetDisplay() function, creates a new Game object, and starts the game.
+  - [ ] `resetDisplay()`: this function hides the start screen overlay.
+  - [ ] `markButton()`: this function is called when a player selects a letter. It disables the button on the onscreen keyboard and calls the - - [ ] `handleInteraction()` method of the Game class.
+  - [ ] Add an event listener to the "Start Game" button which calls the - - [ ] `resetDisplay()` function, creates a new Game object, and starts the game.
   - [ ] Add event listeners to each of the keyboard buttons, so that clicking a button calls the markButton() function.
 
 **NOTE: Keyboard functionality**
@@ -83,6 +83,7 @@ If you're feeling stuck or having trouble with this project:
 - When you submit your project, a snapshot is taken of your repository, and that is what the reviewer will see. Consequently, any changes you make to your repo after you submit will not be seen by the reviewer. So before you submit, it's a smart idea to do a final check to make sure everything in your repo is exactly what you want to submit.
 
 ## Extra Credit
+
 To get an "exceeds" rating, you can expand on the project in the following ways:
 
 ### Add keyboard functionality
