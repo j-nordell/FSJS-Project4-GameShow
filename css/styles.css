@@ -206,5 +206,5 @@ button {
 
 /* Student's additions */
 .key:disabled {
-  background-color: tomato !important;
+  opacity: 0.2;
 }

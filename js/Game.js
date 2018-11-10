@@ -70,6 +70,7 @@ class Game {
       hasLetter = this.currentPhrase.checkLetter(letter);
       let index = this.allowedLetters.indexOf(letter);
       this.allowedLetters.splice(index, 1);
+      console.log(letter);
       this.disableLetterButton(letter);
 
       if(hasLetter) {
@@ -138,7 +139,7 @@ class Game {
   disableLetterButton(letter) {
     let buttons = document.getElementsByClassName("key");
     for(let button of buttons) {
-      if(button.innerText == letter) {
+      if(button.innerText == letter.toLowerCase()) {
         button.disabled = true;
       }
     }
