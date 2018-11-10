@@ -13,7 +13,6 @@ class Phrase {
   addPhraseToDisplay() {
     let phraseHtml = '';
     let phraseUl = document.getElementById("phrase").getElementsByTagName("ul")[0];
-    console.log(this.phrase);
 
     for(let i = 0; i < this.phrase.length; i++) {
       if(this.phrase[i] !== " ") {

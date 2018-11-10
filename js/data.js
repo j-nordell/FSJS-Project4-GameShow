@@ -13,8 +13,9 @@ const winningMessages = [
   "Awesome"
 ];
 
-let losingMessages = [
+const losingMessages = [
   "Too bad",
   "Try again",
   "Better luck next time"
 ];
+
