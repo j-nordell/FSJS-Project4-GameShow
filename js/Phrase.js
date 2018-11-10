@@ -16,9 +16,9 @@ class Phrase {
 
     for(let i = 0; i < this.phrase.length; i++) {
       if(this.phrase[i] !== " ") {
-        phraseHtml +=  `<li class="letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
+        phraseHtml +=  `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
       } else {
-        phraseHtml += `<li class="space"> </li>`;
+        phraseHtml += `<li class="hide space"> </li>`;
       }
     }
 
@@ -42,7 +42,7 @@ class Phrase {
     let itemList = document.querySelectorAll("#phrase li");
     for(let item of itemList) {
       if(item.innerText == letter) {
-        item.style.color = "#000";
+        item.classList.add("show");
       }
     }
   }

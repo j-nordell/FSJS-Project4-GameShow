@@ -3,7 +3,9 @@ const startButton = document.getElementById('btn__reset');
 
 startButton.addEventListener('click', (e) => {
   startButton.innerText == "Start Game" ? game.startGame() : game.resetGame();
-  document.getElementById('overlay').style.display = "none";
+  let overlay = document.getElementById("overlay");
+  overlay.style.opacity = 0;
+  overlay.style.display = "none";
 });
 
 function addLetterListeners() {
