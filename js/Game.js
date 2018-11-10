@@ -125,6 +125,7 @@ class Game {
       losingMessages[Math.floor(Math.random() * losingMessages.length)];
 
     let overlay = document.getElementById("overlay");
+    this.enableButtons();
     overlay.style.display = "inherit";
     overlay.classList.remove("win", "lose");
     overlay.classList.add(winLose);
