@@ -205,3 +205,6 @@ button {
 
 
 /* Student's additions */
+.key:disabled {
+  background-color: tomato !important;
+}

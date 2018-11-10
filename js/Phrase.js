@@ -16,9 +16,9 @@ class Phrase {
 
     for(let i = 0; i < this.phrase.length; i++) {
       if(this.phrase[i] !== " ") {
-        phraseHtml +=  `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
+        phraseHtml +=  `<li class="letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
       } else {
-        phraseHtml += `<li class="hide space"> </li>`;
+        phraseHtml += `<li class="space"> </li>`;
       }
     }
 
