@@ -2,7 +2,7 @@ const game = new Game(0, phrases);
 const startButton = document.getElementById('btn__reset');
 
 startButton.addEventListener('click', (e) => {
-  game.startGame();
+  startButton.innerText == "Start Game" ? game.startGame() : game.resetGame();
   document.getElementById('overlay').style.display = "none";
 });
 
