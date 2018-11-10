@@ -18,7 +18,7 @@ class Game {
    * @return {string} randomPhrase from phrases array
    */
   getRandomPhrase() {
-    return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+    return this.phrases[Math.floor(Math.random() * this.phrases.length)].toUpperCase();
   }
 
   /**
@@ -27,28 +27,58 @@ class Game {
    * @param {Object} e the global event object 
    */
   handleInteraction(e) {
-    console.log(e.target);
+  
+    let letter = e.type == "keydown" ? e.key.toUpperCase() : e.target.innerText.toUpperCase();
+    let allowedLetters = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+    let hasLetter = false;
+
+    if(allowedLetters.includes(letter)) {
+      hasLetter = this.currentPhrase.checkLetter(letter);
+    } 
+    // hasLetter ? this.currentPhrase.showMatchedLetter(letter) : this.removeLife();
+    if(hasLetter) {
+      this.currentPhrase.showMatchedLetter(letter);
+      this.checkForWin();
+    } else {
+      this.removeLife();
+    }
   }
 
   /**
    * Remove a life from lives remaining if lives is not 0
    */
   removeLife() {
-  
+    this.missed += 1;
+    if(this.missed == 5) {
+      this.gameOver("lose");
+    }
+
+    let heartList = document.getElementsByClassName("tries");
+    heartList[5 - this.missed].style.display = "none";
   }
 
   /**
    * Check to see if the player has guessed all letters
+   * @return {boolean} - returns whether the game has been won or not
    */
   checkForWin() {
+    let win = true;
+    let letterBoxes = document.getElementsByClassName("letter");
 
+    for(let box of letterBoxes) {
+      if(box.style.color != "rgb(0, 0, 0)") {
+        win = false;
+      }
+    }
+    if(win) {this.gameOver("win")};
   }
 
   /**
    * Display the win/lose message as appropriate
+   * @param {string} - "win" for win and "lose" for lose
    */
-  gameOver() {
-
+  gameOver(winLose) {
+    alert(`You ${winLose}`);
   }
 
   /**

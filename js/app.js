@@ -12,10 +12,11 @@ function addLetterListeners() {
     key.addEventListener("click", (e) => {
       game.handleInteraction(e);
     });
-    key.addEventListener("keydown", (e) => {
-      game.handleInteraction(e);
-    });
-  }
+   }
+
+   document.addEventListener("keydown", (e) => {
+    game.handleInteraction(e);
+   });
 }
 
 addLetterListeners();
