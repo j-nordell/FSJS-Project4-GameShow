@@ -66,7 +66,7 @@ class Game {
     // Check against the allowed characters in guesses to prevent loss of life
     // when non-letter keys are pressed. Also prevents loss of life if an incorrect
     // letter is pressed more than once
-    if(this.allowedLetters.includes(letter)) {
+    if(this.allowedLetters.includes(letter) && overlay.style.display == "none") {
       hasLetter = this.currentPhrase.checkLetter(letter);
       let index = this.allowedLetters.indexOf(letter);
       this.allowedLetters.splice(index, 1);
