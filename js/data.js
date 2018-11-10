@@ -1,7 +1,10 @@
 let phrases = [
   "when pigs fly",
   "over the moon",
-  "in hot water"
+  "in hot water",
+  "you lucky dog",
+  "storm in a teacup",
+  "proud as a peacock"
 ];
 
 const winningMessages = [
