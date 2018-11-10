@@ -31,7 +31,7 @@ class Game {
     if(this.phrases.length === 0) {
       this.phrases = this.usedPhrases;
       this.usedphrases = [];
-      return getRandomQuote(); // Recursion to get a random phrase once everything is set up
+      return this.getRandomPhrase(); // Recursion to get a random phrase once everything is set up
   } else {
       let randomIndex = Math.floor(Math.random() * this.phrases.length);
       // if the the currently selected index contains the same phrase that was shown last time, pick another
@@ -70,7 +70,6 @@ class Game {
       hasLetter = this.currentPhrase.checkLetter(letter);
       let index = this.allowedLetters.indexOf(letter);
       this.allowedLetters.splice(index, 1);
-      console.log(letter);
       this.disableLetterButton(letter);
 
       if(hasLetter) {
@@ -105,7 +104,8 @@ class Game {
     let letterBoxes = document.getElementsByClassName("letter");
 
     for(let box of letterBoxes) {
-      if(box.style.color != "rgb(0, 0, 0)") {
+      //console.log(!box.classList.contains("show"));
+      if(!box.classList.contains("show")) {
         win = false;
       }
     }
@@ -120,16 +120,26 @@ class Game {
    * @param {string} - "win" for win and "lose" for lose
    */
   gameOver(winLose) {
-    let message = winLose == "win" ? 
-      winningMessages[Math.floor(Math.random() * winningMessages.length)] :
-      losingMessages[Math.floor(Math.random() * losingMessages.length)];
+    let totalMessage = '';
+    let emoji = '';
+    let message = '';
+    if(winLose == "win") {
+      message = winningMessages[Math.floor(Math.random() * winningMessages.length)];
+      emoji = winEmojis[Math.floor(Math.random() * loseEmojis.length)];
+    } else {
+      message = losingMessages[Math.floor(Math.random() * losingMessages.length)];
+      emoji = loseEmojis[Math.floor(Math.random() * loseEmojis.length)];
+    }
+    emoji = String.fromCodePoint(parseInt(emoji, 16));
+    totalMessage += `${message}! ${emoji}`;
 
     let overlay = document.getElementById("overlay");
     this.enableButtons();
+
     overlay.style.display = "inherit";
     overlay.classList.remove("win", "lose");
     overlay.classList.add(winLose);
-    document.getElementById("game-over-message").innerText = message;
+    document.getElementById("game-over-message").innerText = totalMessage;
     document.getElementById("btn__reset").innerHTML = "Play again";
    }
 
