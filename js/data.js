@@ -4,8 +4,7 @@ let phrases = [
   "in hot water",
   "you lucky dog",
   "storm in a teacup",
-  "proud as a peacock"
-  /*  Commented out for testing purposes
+  "proud as a peacock",
   "keep your hat on",
   "raining cats and dogs",
   "two peas in a pod",
@@ -65,7 +64,6 @@ let phrases = [
   "spill the beans",
   "take the cake",
   "the whole nine yards"
-  */
 ];
 
 const winningMessages = [
