@@ -18,7 +18,6 @@ function addLetterListeners() {
   const keys = document.getElementsByClassName("key");
   for(let key of keys) {
     key.addEventListener("click", (e) => {
-      alert("Hi!");
       game.handleInteraction(e);
     });
    }
