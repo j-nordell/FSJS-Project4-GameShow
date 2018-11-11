@@ -17,6 +17,7 @@ class Game {
     "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
     "S", "T", "U", "V", "W", "X", "Y", "Z"
     ];
+    this.started = false;
   }
 
   /**
@@ -58,15 +59,15 @@ class Game {
     let overlay = document.getElementById("overlay");
    
     // Added so the user can play entirely using the keyboard instead of clicking the start game button
-    if(e.keyCode == 13 && overlay.style.display != "none") {
-      overlay.style.display = "none";
+    if(e.keyCode == 13 && !this.started) {
+      overlay.classList.add("animated", "slideOutUp");
       this.resetGame();
     }
 
     // Check against the allowed characters in guesses to prevent loss of life
     // when non-letter keys are pressed. Also prevents loss of life if an incorrect
     // letter is pressed more than once
-    if(this.allowedLetters.includes(letter) && overlay.style.display == "none") {
+    if(this.allowedLetters.includes(letter) && this.started) {
       hasLetter = this.currentPhrase.checkLetter(letter);
       let index = this.allowedLetters.indexOf(letter);
       this.allowedLetters.splice(index, 1);
@@ -91,6 +92,7 @@ class Game {
       this.gameOver("lose");
     } else {
       let heartList = document.getElementsByClassName("tries");
+      heartList[5 - this.missed].classList.add("animated", "bounceIn");
       heartList[5 - this.missed].getElementsByTagName("img")[0].src = "images/lostHeart.png";
     }
   }
@@ -124,11 +126,15 @@ class Game {
     let totalMessage = '';
     let emoji = '';
     let message = '';
+    let overlay = document.getElementById("overlay");
+    overlay.classList.remove("slideOutUp");
     
     if(winLose == "win") {
       message = winningMessages[Math.floor(Math.random() * winningMessages.length)];
       emoji = winEmojis[Math.floor(Math.random() * loseEmojis.length)];
       document.getElementById("game-over-message").style.fontFamily = "Pacifico";
+     
+      overlay.classList.add("bounceInLeft");
     } else {
       message = losingMessages[Math.floor(Math.random() * losingMessages.length)];
       emoji = loseEmojis[Math.floor(Math.random() * loseEmojis.length)];
@@ -140,17 +146,18 @@ class Game {
     // Display the correct answer as a player courtesy in case of loss
     if(winLose == "lose") {
       document.getElementById("answer").innerText = `Correct answer: ${this.currentPhrase.phrase}`;
+      overlay.classList.add("bounceInLeft");
     }
-    let overlay = document.getElementById("overlay");
+    
     this.enableButtons();
     this.enableHearts();
-  
-    overlay.style.display = "inherit";
-    overlay.style.opacity = 1;
+    
     overlay.classList.remove("win", "lose");
     overlay.classList.add(winLose);
+    overlay.style.display = "inherit";
     document.getElementById("game-over-message").innerText = totalMessage;
     document.getElementById("btn__reset").innerHTML = "Play again";
+    this.started = false;
    }
 
    /**
@@ -173,6 +180,7 @@ class Game {
     let randomPhrase = this.getRandomPhrase();
     this.currentPhrase = new Phrase(randomPhrase);
     this.currentPhrase.addPhraseToDisplay();
+    this.started = true;
   }
 
   /**
@@ -183,6 +191,7 @@ class Game {
 
     for(let heart of hearts) {
       heart.style.display = "";
+      heart.classList.remove("animated", "bounceIn");
       heart.getElementsByTagName("img")[0].src = "images/liveHeart.png";  
     }
   }
@@ -205,6 +214,7 @@ class Game {
     document.getElementById("btn__reset").innerHTML = "Play again";
     document.getElementById("answer").innerText = "";
     this.lastPhrase = this.currentPhrase;
+    this.started = false;
     this.enableButtons();
     this.enableHearts();
     this.missed = 0;
