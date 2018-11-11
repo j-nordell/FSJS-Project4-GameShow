@@ -213,6 +213,7 @@ class Game {
   resetGame() {
     document.getElementById("btn__reset").innerHTML = "Play again";
     document.getElementById("answer").innerText = "";
+    document.getElementById("overlay").classList.remove("slideInDown", "bounceInLeft");
     this.lastPhrase = this.currentPhrase;
     this.started = false;
     this.enableButtons();
