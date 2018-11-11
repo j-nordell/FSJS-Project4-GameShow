@@ -5,8 +5,8 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
+  --color-win: rgb(201, 75, 134);
+  --color-lose: rgb(44, 19, 51);
   --color-start: #5b85b7;
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
@@ -160,6 +160,10 @@ button {
   border-right: solid 3px rgba(0, 0, 0, 0);
 }
 
+button:hover {
+  box-shadow: 0 5px 15px rgba(230, 247, 137, 0.4);
+}
+
 
 /* Overlay */
 
@@ -197,7 +201,7 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: var(--color-lose);
 }
 
 .lose a {
@@ -212,4 +216,8 @@ button {
 
 #game-over-message {
   font-size: 5em;
+}
+
+.key:hover {
+  background-color: rgba(131, 182, 248, 0.35);
 }

@@ -4,19 +4,50 @@ let phrases = [
   "in hot water",
   "you lucky dog",
   "storm in a teacup",
-  "proud as a peacock"
+  "proud as a peacock",
+  "keep your hat on",
+  "raining cats and dogs",
+  "two peas in a pod",
+  "give him a hand",
+  "break a leg",
+  "in the doghouse",
+  "let the cat out of the bag",
+  "money to burn",
+  "sick as a dog",
+  "bed of roses",
+  "laugh your head off",
+  "piece of cake",
+  "easy as pie",
+  "cool as a cucumber",
+  "fit as a fiddle",
+  "let sleeping dogs lie",
+  "smell a rat",
+  "two birds with one stone",
+  "get the axe",
+  "the early bird catches the worm",
+  "red as a beet",
+  "busy as a beaver",
+  "pretty as a picture",
+  "old as the hills",
+  "not for all the tea in china",
+  "play by ear"
 ];
 
 const winningMessages = [
   "Terrific",
   "Spectacular",
-  "Awesome"
+  "Awesome",
+  "Fantastic",
+  "Way to go",
+  "Amazing"
 ];
 
 const losingMessages = [
   "Too bad",
   "Try again",
-  "Better luck next time"
+  "Better luck next time",
+  "You'll get it next time",
+  "Give it another go"
 ];
 
 const winEmojis = [
