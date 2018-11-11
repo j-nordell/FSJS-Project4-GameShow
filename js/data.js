@@ -63,7 +63,19 @@ let phrases = [
   "smoke and mirrors",
   "spill the beans",
   "take the cake",
-  "the whole nine yards"
+  "the whole nine yards",
+  "put a lid on it",
+  "kick the bucket",
+  "buy the farm",
+  "cash in your chips",
+  "bite the dust",
+  "dear john",
+  "gee whiz",
+  "give up the ghost",
+  "lose your lunch",
+  "penny for your thoughts",
+  "your two cents",
+  "worse for wear"
 ];
 
 const winningMessages = [
@@ -77,7 +89,12 @@ const winningMessages = [
   "Excellent",
   "Impressive",
   "Wonderful",
-  "Magnificent"
+  "Magnificent",
+  "Great work",
+  "Genius",
+  "Brilliant",
+  "Super",
+  "Superb"
 ];
 
 const losingMessages = [
