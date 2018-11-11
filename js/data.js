@@ -30,7 +30,40 @@ let phrases = [
   "pretty as a picture",
   "old as the hills",
   "not for all the tea in china",
-  "play by ear"
+  "play by ear",
+  "happy as a clam",
+  "big bang for your buck",
+  "an arm and a leg",
+  "blast from the past",
+  "bury the hatchet",
+  "cold turkey",
+  "fall off the wagon",
+  "cut to the chase",
+  "dead ringer",
+  "doom and gloom",
+  "down the tubes",
+  "face the music",
+  "filthy rich",
+  "fly off the handle",
+  "get down to brass tacks",
+  "get your goat",
+  "go postal",
+  "have an axe to grind",
+  "hold your horses",
+  "joined at the hip",
+  "jury is still out",
+  "keep your chin up",
+  "lose your marbles",
+  "no dice",
+  "paint the town red",
+  "pass the buck",
+  "rise and shine",
+  "red letter day",
+  "run of the mill",
+  "smoke and mirrors",
+  "spill the beans",
+  "take the cake",
+  "the whole nine yards"
 ];
 
 const winningMessages = [
@@ -39,7 +72,12 @@ const winningMessages = [
   "Awesome",
   "Fantastic",
   "Way to go",
-  "Amazing"
+  "Amazing",
+  "Good job",
+  "Excellent",
+  "Impressive",
+  "Wonderful",
+  "Magnificent"
 ];
 
 const losingMessages = [
@@ -47,7 +85,11 @@ const losingMessages = [
   "Try again",
   "Better luck next time",
   "You'll get it next time",
-  "Give it another go"
+  "Give it another go",
+  "Not this time",
+  "Sorry",
+  "Awwwwwww",
+  "That's a shame"
 ];
 
 const winEmojis = [
