@@ -91,7 +91,7 @@ class Game {
       this.gameOver("lose");
     } else {
       let heartList = document.getElementsByClassName("tries");
-      heartList[5 - this.missed].style.display = "none";
+      heartList[5 - this.missed].getElementsByTagName("img")[0].src = "../images/lostHeart.png";
     }
   }
 
@@ -113,6 +113,8 @@ class Game {
     if(win) {
       this.gameOver("win");
     }
+
+    return win;
   }
 
   /**
@@ -132,7 +134,12 @@ class Game {
     }
     emoji = String.fromCodePoint(parseInt(emoji, 16));
     totalMessage += `${message}! ${emoji}`;
-
+    
+    // Display the correct answer as a player courtesy in case of loss
+    console.log(this.currentPhrase.phrase);
+    if(winLose == "lose") {
+      document.getElementById("answer").innerText = `Correct answer: ${this.currentPhrase.phrase}`;
+    }
     let overlay = document.getElementById("overlay");
     this.enableButtons();
 
@@ -191,6 +198,7 @@ class Game {
    */
   resetGame() {
     document.getElementById("btn__reset").innerHTML = "Play again";
+    document.getElementById("answer").innerText = "";
     this.lastPhrase = this.currentPhrase;
     this.enableButtons();
     this.enableHearts();
