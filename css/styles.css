@@ -1,6 +1,7 @@
 /* Main styles */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
-
+/* student added */
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light');
 /* Variables */
 
 :root {
@@ -207,4 +208,8 @@ button {
 /* Student's additions */
 .key:disabled {
   opacity: 0.2;
+}
+
+#game-over-message {
+  font-size: 5em;
 }

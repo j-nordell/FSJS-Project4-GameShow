@@ -88,7 +88,6 @@ class Game {
   removeLife() {
     this.missed += 1;
     if(this.missed == 5) {
-      alert("Hi!");
       this.gameOver("lose");
     } else {
       let heartList = document.getElementsByClassName("tries");
@@ -105,7 +104,6 @@ class Game {
     let letterBoxes = document.getElementsByClassName("letter");
 
     for(let box of letterBoxes) {
-      //console.log(!box.classList.contains("show"));
       if(!box.classList.contains("show")) {
         win = false;
       }
@@ -126,12 +124,15 @@ class Game {
     let totalMessage = '';
     let emoji = '';
     let message = '';
+    
     if(winLose == "win") {
       message = winningMessages[Math.floor(Math.random() * winningMessages.length)];
       emoji = winEmojis[Math.floor(Math.random() * loseEmojis.length)];
+      document.getElementById("game-over-message").style.fontFamily = "Pacifico";
     } else {
       message = losingMessages[Math.floor(Math.random() * losingMessages.length)];
       emoji = loseEmojis[Math.floor(Math.random() * loseEmojis.length)];
+      document.getElementById("game-over-message").style.fontFamily = "'Shadows Into Light', cursive";
     }
     emoji = String.fromCodePoint(parseInt(emoji, 16));
     totalMessage += `${message}! ${emoji}`;
@@ -142,8 +143,10 @@ class Game {
     }
     let overlay = document.getElementById("overlay");
     this.enableButtons();
-
+    this.enableHearts();
+  
     overlay.style.display = "inherit";
+    overlay.style.opacity = 1;
     overlay.classList.remove("win", "lose");
     overlay.classList.add(winLose);
     document.getElementById("game-over-message").innerText = totalMessage;
@@ -177,8 +180,10 @@ class Game {
    */
   enableHearts() {
     let hearts = document.getElementsByClassName("tries");
+
     for(let heart of hearts) {
       heart.style.display = "";
+      heart.getElementsByTagName("img")[0].src = "images/liveHeart.png";  
     }
   }
 
