@@ -131,7 +131,7 @@ class Game {
     
     if(winLose == "win") {
       message = winningMessages[Math.floor(Math.random() * winningMessages.length)];
-      emoji = winEmojis[Math.floor(Math.random() * loseEmojis.length)];
+      emoji = winEmojis[Math.floor(Math.random() * winEmojis.length)];
       document.getElementById("game-over-message").style.fontFamily = "Pacifico";
      
       overlay.classList.add("bounceInLeft");
@@ -146,7 +146,7 @@ class Game {
     // Display the correct answer as a player courtesy in case of loss
     if(winLose == "lose") {
       document.getElementById("answer").innerText = `Correct answer: ${this.currentPhrase.phrase}`;
-      overlay.classList.add("bounceInLeft");
+      overlay.classList.add("slideInDown");
     }
     
     this.enableButtons();
