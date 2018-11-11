@@ -127,7 +127,7 @@ class Game {
     let emoji = '';
     let message = '';
     let overlay = document.getElementById("overlay");
-    overlay.classList.remove("slideOutUp");
+    overlay.classList.remove("slideOutUp", "slideInDown", "bounceInLeft");
     
     if(winLose == "win") {
       message = winningMessages[Math.floor(Math.random() * winningMessages.length)];
