@@ -91,7 +91,7 @@ class Game {
       this.gameOver("lose");
     } else {
       let heartList = document.getElementsByClassName("tries");
-      heartList[5 - this.missed].style.display = "none";
+      heartList[5 - this.missed].getElementsByTagName("img")[0].src = "images/lostHeart.png";
     }
   }
 
@@ -104,7 +104,6 @@ class Game {
     let letterBoxes = document.getElementsByClassName("letter");
 
     for(let box of letterBoxes) {
-      //console.log(!box.classList.contains("show"));
       if(!box.classList.contains("show")) {
         win = false;
       }
@@ -113,6 +112,8 @@ class Game {
     if(win) {
       this.gameOver("win");
     }
+
+    return win;
   }
 
   /**
@@ -123,20 +124,29 @@ class Game {
     let totalMessage = '';
     let emoji = '';
     let message = '';
+    
     if(winLose == "win") {
       message = winningMessages[Math.floor(Math.random() * winningMessages.length)];
       emoji = winEmojis[Math.floor(Math.random() * loseEmojis.length)];
+      document.getElementById("game-over-message").style.fontFamily = "Pacifico";
     } else {
       message = losingMessages[Math.floor(Math.random() * losingMessages.length)];
       emoji = loseEmojis[Math.floor(Math.random() * loseEmojis.length)];
+      document.getElementById("game-over-message").style.fontFamily = "'Shadows Into Light', cursive";
     }
     emoji = String.fromCodePoint(parseInt(emoji, 16));
     totalMessage += `${message}! ${emoji}`;
-
+    
+    // Display the correct answer as a player courtesy in case of loss
+    if(winLose == "lose") {
+      document.getElementById("answer").innerText = `Correct answer: ${this.currentPhrase.phrase}`;
+    }
     let overlay = document.getElementById("overlay");
     this.enableButtons();
-
+    this.enableHearts();
+  
     overlay.style.display = "inherit";
+    overlay.style.opacity = 1;
     overlay.classList.remove("win", "lose");
     overlay.classList.add(winLose);
     document.getElementById("game-over-message").innerText = totalMessage;
@@ -170,8 +180,10 @@ class Game {
    */
   enableHearts() {
     let hearts = document.getElementsByClassName("tries");
+
     for(let heart of hearts) {
       heart.style.display = "";
+      heart.getElementsByTagName("img")[0].src = "images/liveHeart.png";  
     }
   }
 
@@ -191,6 +203,7 @@ class Game {
    */
   resetGame() {
     document.getElementById("btn__reset").innerHTML = "Play again";
+    document.getElementById("answer").innerText = "";
     this.lastPhrase = this.currentPhrase;
     this.enableButtons();
     this.enableHearts();
