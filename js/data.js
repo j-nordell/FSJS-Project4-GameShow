@@ -75,7 +75,33 @@ let phrases = [
   "lose your lunch",
   "penny for your thoughts",
   "your two cents",
-  "worse for wear"
+  "worse for wear",
+  "five finger discount",
+  "pleased as punch",
+  "light as a feather",
+  "blind as a bat",
+  "cold as ice",
+  "hard as nails",
+  "hot as hell",
+  "white as a ghost",
+  "black as coal",
+  "fight like cats and dogs",
+  "clear as mud",
+  "like watching grass grow",
+  "like watching paint dry",
+  "easy as shooting fish in a barrel",
+  "nutty as a fruitcake",
+  "loony bin",
+  "go over like a lead balloon",
+  "different as night and day",
+  "thin as a rake",
+  "sleep like a log",
+  "fits like a glove",
+  "dry as a bone",
+  "deep as the ocean",
+  "stand out like a sore thumb",
+  "green thumb",
+  "take a crack at"
 ];
 
 const winningMessages = [
@@ -94,7 +120,9 @@ const winningMessages = [
   "Genius",
   "Brilliant",
   "Super",
-  "Superb"
+  "Superb",
+  "You rock",
+  "Like a boss"
 ];
 
 const losingMessages = [
@@ -106,7 +134,8 @@ const losingMessages = [
   "Not this time",
   "Sorry",
   "Awwwwwww",
-  "That's a shame"
+  "That's a shame",
+  "Rotten luck"
 ];
 
 const winEmojis = [
