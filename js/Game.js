@@ -88,10 +88,11 @@ class Game {
   removeLife() {
     this.missed += 1;
     if(this.missed == 5) {
+      alert("Hi!");
       this.gameOver("lose");
     } else {
       let heartList = document.getElementsByClassName("tries");
-      heartList[5 - this.missed].getElementsByTagName("img")[0].src = "../images/lostHeart.png";
+      heartList[5 - this.missed].getElementsByTagName("img")[0].src = "images/lostHeart.png";
     }
   }
 
@@ -136,7 +137,6 @@ class Game {
     totalMessage += `${message}! ${emoji}`;
     
     // Display the correct answer as a player courtesy in case of loss
-    console.log(this.currentPhrase.phrase);
     if(winLose == "lose") {
       document.getElementById("answer").innerText = `Correct answer: ${this.currentPhrase.phrase}`;
     }
